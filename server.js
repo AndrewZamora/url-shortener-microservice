@@ -14,13 +14,14 @@ var port = process.env.PORT || 3000;
 
 /** this project needs a db !! **/ 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-const shortenerSchema = new Schema ({
+const urlSchema = new Schema ({
   url: String,
   shortUrl: String
 })
-const Url = mongoose.model("Url", shortenerSchema);
+const Url = mongoose.model("Url", urlSchema);
 
-Url.create
+const test = new Url({url:"google",shortUrl:"short"});
+// test.save();
 
 app.use(cors());
 
