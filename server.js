@@ -3,6 +3,7 @@
 var express = require('express');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 var cors = require('cors');
 
@@ -13,7 +14,13 @@ var port = process.env.PORT || 3000;
 
 /** this project needs a db !! **/ 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const shortenerSchema = new Schema ({
+  url: String,
+  shortUrl: String
+})
+const Url = mongoose.model("Url", shortenerSchema);
 
+Url.create
 
 app.use(cors());
 
