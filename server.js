@@ -29,7 +29,6 @@ app.use(cors());
 /** this project needs to parse POST bodies **/
 // you should mount the body-parser here
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json);
 
 
 app.use('/public', express.static(process.cwd() + '/public'));
@@ -45,7 +44,8 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.post("api/shorturl/new", function(req,res){
-  console.log(req.body)
+  console.log("yo")
+  res.end()
 });
 
 
