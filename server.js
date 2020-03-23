@@ -13,7 +13,9 @@ var port = process.env.PORT || 3000;
 
 /** this project needs a db !! **/ 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connection.on('connected', function(e){
+  console.log("yo", e)
+})
 app.use(cors());
 
 /** this project needs to parse POST bodies **/
